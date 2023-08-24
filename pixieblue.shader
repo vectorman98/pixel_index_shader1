@@ -1,6 +1,11 @@
-// based on code by MartialArtsTetherball
-// https://www.reddit.com/r/godot/comments/gz2led/wrote_a_shader_that_maps_a_pixel_art_color/
-// https://pastebin.com/mhEF5wK5
+/* PIXEL INDEX SHADER
+ * Simulates the pixie (pixel index) objects on the fictitious Lilac Pro home computer
+ * Gives effect similar to additive blending using palette swaps and CLUT without realtime maths */
+
+// CREDITS:
+// Original coding by Vaethor
+// Originally based on code by MartialArtsTetherball (https://www.reddit.com/r/godot/comments/gz2led/wrote_a_shader_that_maps_a_pixel_art_color/)
+// 	https://pastebin.com/mhEF5wK5
 
 shader_type canvas_item; 
 uniform vec3 bias = vec3(1.0, 0.25, 1.5); // Hue, Saturation (Saturation * Value), and Lightness (From LAB)
