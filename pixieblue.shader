@@ -1,10 +1,6 @@
-// PIXEL INDEX ELEMENT (PIXIE) SHADER
-// This applies a simple 3-color palette to everything underneath, to create similar effect to additive blending with as few colors as possible
-
-// CREDITS:
-// Original code by Vaethor
-//   based on code by MartialArtsTetherball (https://www.reddit.com/r/godot/comments/gz2led/wrote_a_shader_that_maps_a_pixel_art_color/)
-//   https://pastebin.com/mhEF5wK5
+// based on code by MartialArtsTetherball
+// https://www.reddit.com/r/godot/comments/gz2led/wrote_a_shader_that_maps_a_pixel_art_color/
+// https://pastebin.com/mhEF5wK5
 
 shader_type canvas_item; 
 uniform vec3 bias = vec3(1.0, 0.25, 1.5); // Hue, Saturation (Saturation * Value), and Lightness (From LAB)
@@ -16,12 +12,6 @@ void fragment() {
 	vec4 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	vec4 tex_color = texture(TEXTURE, UV);
 	COLOR = tex_color;
-
-	// If the pixel's value is lower than the Mask's output color, it means the
-	// mask is being occluded, so we draw the silhouette instead.
-	if (screen_color.r < 10.0){
-		COLOR.rgb = silhouette_color.rgb;
-	}
 }
 
 
